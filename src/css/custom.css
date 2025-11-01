@@ -1,0 +1,462 @@
+/**
+ * StarGame API 文档 - 科幻太空风格
+ * 基于游戏前端的视觉设计
+ */
+
+/* 颜色变量 - 匹配游戏风格 */
+:root {
+  /* 主色调 - 太空蓝和能量青 */
+  --ifm-color-primary: #4a9eff;
+  --ifm-color-primary-dark: #3189f5;
+  --ifm-color-primary-darker: #247de8;
+  --ifm-color-primary-darkest: #1a68c7;
+  --ifm-color-primary-light: #62afff;
+  --ifm-color-primary-lighter: #7dbdff;
+  --ifm-color-primary-lightest: #a8d4ff;
+  
+  /* 能量青色 */
+  --ifm-color-info: #00e6e6;
+  --ifm-color-info-dark: #00cccc;
+  --ifm-color-info-darker: #00b3b3;
+  
+  /* 警告橙 */
+  --ifm-color-warning: #ff8c42;
+  --ifm-color-warning-dark: #ff7420;
+  
+  /* 危险红 */
+  --ifm-color-danger: #ff4757;
+  
+  /* 成功绿 */
+  --ifm-color-success: #00ff96;
+  
+  /* 背景色 */
+  --ifm-background-color: #0a0e1a;
+  --ifm-navbar-background-color: rgba(20, 30, 50, 0.95);
+  --ifm-footer-background-color: #151a2e;
+  
+  /* 文字颜色 */
+  --ifm-font-color-base: #e8f0ff;
+  --ifm-font-color-secondary: #8892a6;
+  
+  /* 代码块 */
+  --ifm-code-font-size: 95%;
+  --ifm-code-background: rgba(20, 30, 50, 0.6);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 230, 230, 0.1);
+  
+  /* 链接 */
+  --ifm-link-color: #00e6e6;
+  --ifm-link-hover-color: #4a9eff;
+  
+  /* 边框发光效果 */
+  --border-glow: #00e6e6;
+}
+
+/* 暗色主题 (默认) */
+[data-theme='dark'] {
+  --ifm-color-primary: #4a9eff;
+  --ifm-color-primary-dark: #3189f5;
+  --ifm-color-primary-darker: #247de8;
+  --ifm-color-primary-darkest: #1a68c7;
+  --ifm-color-primary-light: #62afff;
+  --ifm-color-primary-lighter: #7dbdff;
+  --ifm-color-primary-lightest: #a8d4ff;
+  
+  --ifm-background-color: #0a0e1a;
+  --ifm-background-surface-color: #151a2e;
+  
+  --ifm-font-color-base: #e8f0ff;
+  --ifm-heading-color: #e8f0ff;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(0, 230, 230, 0.15);
+}
+
+/* 亮色主题优化 */
+[data-theme='light'] {
+  --ifm-background-color: #f5f7fa;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
+  --ifm-footer-background-color: #2e3748;
+}
+
+/* 全局样式 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 导航栏样式 */
+.navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 230, 230, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 230, 230, 0.1);
+}
+
+.navbar__title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 侧边栏样式 */
+.menu__link {
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+  background-color: rgba(74, 158, 255, 0.1);
+  border-left: 2px solid var(--border-glow);
+}
+
+.menu__link--active {
+  background-color: rgba(0, 230, 230, 0.15);
+  border-left: 2px solid var(--border-glow);
+  font-weight: 600;
+}
+
+/* 代码块样式 */
+pre {
+  border: 1px solid rgba(0, 230, 230, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+code {
+  background-color: var(--ifm-code-background);
+  border: 1px solid rgba(0, 230, 230, 0.15);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* 表格样式 */
+table {
+  border: 1px solid rgba(0, 230, 230, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: rgba(74, 158, 255, 0.15);
+  border-bottom: 2px solid var(--border-glow);
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: rgba(74, 158, 255, 0.05);
+}
+
+/* 告示框样式 */
+.admonition {
+  border-radius: 8px;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admonition-icon svg {
+  filter: drop-shadow(0 0 3px currentColor);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-glow);
+}
+
+/* 选择文本样式 */
+::selection {
+  background: rgba(0, 230, 230, 0.3);
+  color: var(--ifm-font-color-base);
+}
+
+/* 按钮样式 */
+.button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #4a9eff, #00e6e6);
+  box-shadow: 0 4px 12px rgba(0, 230, 230, 0.3);
+}
+
+.button--primary:hover {
+  box-shadow: 0 6px 20px rgba(0, 230, 230, 0.5);
+  transform: translateY(-2px);
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(20, 30, 50, 0.6);
+  border: 1px solid rgba(0, 230, 230, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 8px 24px rgba(0, 230, 230, 0.2);
+  transform: translateY(-4px);
+}
+
+/* 页脚样式 */
+.footer {
+  border-top: 1px solid rgba(0, 230, 230, 0.2);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 主内容区域 */
+.main-wrapper {
+  background: linear-gradient(180deg, #0a0e1a 0%, #151a2e 100%);
+}
+
+/* 标题增强 - 科幻发光效果 */
+h1, h2, h3 {
+  text-shadow: 0 0 10px rgba(0, 230, 230, 0.3);
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, var(--border-glow), transparent) 1;
+  padding-bottom: 0.5rem;
+}
+
+/* 链接发光效果 */
+a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* 内联代码增强 */
+:not(pre) > code {
+  color: var(--ifm-color-info);
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(0, 230, 230, 0.3);
+}
+
+/* 代码块标题 */
+div[class^='codeBlockTitle'] {
+  background: rgba(74, 158, 255, 0.15);
+  border-bottom: 1px solid var(--border-glow);
+  font-weight: 600;
+}
+
+/* 标签样式 */
+.badge {
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* TOC（目录）样式 */
+.table-of-contents {
+  border-left: 2px solid rgba(0, 230, 230, 0.3);
+}
+
+.table-of-contents__link {
+  transition: all 0.3s ease;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--border-glow);
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* 面包屑导航 */
+.breadcrumbs__link {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+  opacity: 1;
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* 分页导航 */
+.pagination-nav__link {
+  border: 1px solid rgba(0, 230, 230, 0.2);
+  background: rgba(20, 30, 50, 0.6);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 4px 16px rgba(0, 230, 230, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 搜索框样式 */
+.navbar__search-input {
+  background: rgba(20, 30, 50, 0.8);
+  border: 1px solid rgba(0, 230, 230, 0.3);
+  border-radius: 6px;
+  color: var(--ifm-font-color-base);
+  transition: all 0.3s ease;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--border-glow);
+  box-shadow: 0 0 12px rgba(0, 230, 230, 0.3);
+}
+
+/* 侧边栏分类标题 */
+.menu__list-item-collapsible {
+  border-radius: 6px;
+}
+
+.menu__caret::before {
+  filter: drop-shadow(0 0 3px var(--border-glow));
+}
+
+/* Logo 增强 */
+.navbar__logo {
+  transition: all 0.3s ease;
+}
+
+.navbar__logo:hover {
+  filter: drop-shadow(0 0 8px var(--border-glow));
+}
+
+/* 语言切换器 */
+.navbar__link {
+  transition: all 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--border-glow);
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* 移动端菜单 */
+.navbar-sidebar {
+  background: rgba(10, 14, 26, 0.98);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(0, 230, 230, 0.2);
+}
+
+/* 响应式优化 */
+@media (max-width: 996px) {
+  .navbar {
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* 动画效果 */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px var(--border-glow); }
+  50% { box-shadow: 0 0 20px var(--border-glow), 0 0 30px var(--border-glow); }
+}
+
+/* 星空背景动画（可选） */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 45% 20%, white, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: twinkle 200s linear infinite;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* 修复"跳到主要内容"按钮位置 */
+.skipToContent_fXgn {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 230, 230, 0.4);
+  transition: top 0.3s ease;
+}
+
+.skipToContent_fXgn:focus {
+  top: 10px;
+}
+
+/* 通用的跳过内容链接样式 */
+a[href="#__docusaurus_skipToContent_fallback"] {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 230, 230, 0.4);
+  transition: top 0.3s ease;
+}
+
+a[href="#__docusaurus_skipToContent_fallback"]:focus {
+  top: 10px;
+}
+
+/* 隐藏非焦点状态下的跳过链接 */
+.skipToContent_fXgn:not(:focus),
+a[href="#__docusaurus_skipToContent_fallback"]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

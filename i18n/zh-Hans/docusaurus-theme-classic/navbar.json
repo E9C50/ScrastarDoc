@@ -1,0 +1,11 @@
+{
+  "title": {
+    "message": "StarGame API",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "StarGame Logo",
+    "description": "The alt text of navbar logo"
+  }
+}
+
