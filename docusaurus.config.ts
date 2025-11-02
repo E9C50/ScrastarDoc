@@ -88,7 +88,7 @@ const config: Config = {
           dropdownItemsAfter: [],
         },
         {
-          href: 'https://github.com/stargame',
+          href: 'https://github.com/E9C50/ScrastarDoc',
           label: 'GitHub',
           position: 'right',
         },
