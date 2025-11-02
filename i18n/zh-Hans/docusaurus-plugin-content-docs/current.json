@@ -2,6 +2,21 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
+  },
+  "sidebar.apiSidebar.category.Core API": {
+    "message": "核心 API",
+    "description": "The label for category 'Core API' in sidebar 'apiSidebar'"
+  },
+  "sidebar.apiSidebar.category.Components & Weapons": {
+    "message": "组件与武器",
+    "description": "The label for category 'Components & Weapons' in sidebar 'apiSidebar'"
+  },
+  "sidebar.apiSidebar.category.Configuration": {
+    "message": "配置查询",
+    "description": "The label for category 'Configuration' in sidebar 'apiSidebar'"
+  },
+  "sidebar.apiSidebar.category.Constants & Resources": {
+    "message": "常量与资源",
+    "description": "The label for category 'Constants & Resources' in sidebar 'apiSidebar'"
   }
 }
-
